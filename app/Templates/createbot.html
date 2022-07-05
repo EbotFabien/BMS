@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+{% include "nav.html" %}
+{% block content%}
+<div class="content-section">
+    <form method="POST">
+        {{ form.hidden_tag() }}
+        <fieldset class="form-group">
+         <legend class="border-bottom mb4">Insert Token number </legend>
+        <div class="form-group">
+            {{form.token.label(class="form-control-label")}}
+    
+            {% if form.token.errors %}
+                {{form.token(class="form-control form-control-lg is-invalid") }}
+                <div class="invalid-feedback">
+                    {% for error in form.token.errors %}
+                        <span>{{ error }}</span>
+                    {% endfor %}
+                </div>
+            {% else %}
+                {{form.token(class="form-control form-control-lg")}}
+            {% endif %}
+    </div>
+        <div class="form-group">
+        {{form.Phonenumber.label(class="form-control-label")}}
+    
+        {% if form.Phonenumber.errors %}
+            {{ form.Phonenumber(class="form-control form-control-lg is-invalid") }}
+            <div class="invalid-feedback">
+                {% for error in form.Phonenumber.errors %}
+                    <span>{{ error }}</span>
+                {% endfor %}
+            </div>
+            {% else %}
+                {{form.Phonenumber(class="form-control form-control-lg")}}
+            {% endif %}
+    </div>
+        <div class="form-group">
+        {{form.Bot_name.label(class="form-control-label")}}
+    
+        {% if form.Bot_name.errors %}
+            {{ form.Bot_name(class="form-control form-control-lg is-invalid") }}
+            <div class="invalid-feedback">
+                {% for error in form.Bot_name.errors %}
+                    <span>{{ error }}</span>
+                {% endfor %}
+            </div>
+            {% else %}
+                {{form.Bot_name(class="form-control form-control-lg")}}
+            {% endif %}
+    </div>
+    </fieldset>
+    <div class="form-group">
+            {{form.submit(class="btn btn-outline-info")}}    
+        </div>
+    </form>
+    
+    </div>
+
+{% endblock content %} 

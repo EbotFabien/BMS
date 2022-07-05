@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% include "nav.html" %}
+{% block content%}
+
+Book a journey
+
+{% for i in loc %}
+    <div class="card" style="width: 18rem;border: 3px solid black;">
+        <div class="card-body">
+        <h5 class="card-title">Journey No {{i.id}}</h5>
+        <h6 class="card-subtitle mb-2 text-muted">Departure Time: {{i.destiny__.start}} </h6>
+        <p class="card-text">Arrival Time: {{i.destiny__.end}} </p>
+        <p class="card-text">Fee: {{i.destiny__.fee}} </p>
+        <p class="card-text">Status: {{i.status}} </p>
+        <a href=# class="card-link">No of sits Left: {{i.sits}}</a>
+
+        </div>
+        {%if current_user.Type != 'admin'%}
+            <span><a class="navbar-brand" href="{{ url_for('journey.bookjourney',id=i.id) }}"><button type="button" class="btn btn-success">Book</button></a></span>
+        {% endif %}
+    </div>
+{% endfor %}
+
+
+
+{% endblock content %} 

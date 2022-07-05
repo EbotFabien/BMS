@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% include "nav.html" %}
+{% block content%}
+<table class="table">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Name</th>
+        <th scope="col">number of impressions</th>
+        <th scope="col">View suggestions</th>
+      </tr>
+    </thead>
+    <tbody>
+    {% for i in  loc%}
+        <tr>
+            <th scope="row">{{i.id}}</th>
+            <td>{{i.impression}}</td>
+            <td>{{i.count}}</td>
+            <td><a class="navbar-brand" href="{{ url_for('ml.viewsuggestion',id=i.id) }}">suggestions</a></td>
+           
+        </tr>
+    {% endfor %}
+    </tbody>
+  </table>
+
+{% endblock content %} 

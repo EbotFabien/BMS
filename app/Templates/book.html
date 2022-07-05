@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% include "nav.html" %}
+{% block content%}
+<div class="content-section">
+    <form method="POST">
+        {{ form.hidden_tag() }}
+        <fieldset class="form-group">
+         <legend class="border-bottom mb4">Make a Booking</legend>
+        <div class="form-group">
+            {{form.package.label(class="form-control-label")}}
+    
+            {% if form.package.errors %}
+                {{form.package(class="form-control form-control-lg is-invalid") }}
+                <div class="invalid-feedback">
+                    {% for error in form.package.errors %}
+                        <span>{{ error }}</span>
+                    {% endfor %}
+                </div>
+            {% else %}
+                {{form.package(class="form-control form-control-lg",placeholder="Tell us the type of package you have")}}
+            {% endif %}
+    </div>
+    </fieldset>
+    <div class="form-group">
+            {{form.submit(class="btn btn-outline-info")}}    
+        </div>
+    </form>
+    
+    </div>
+
+{% endblock content %} 

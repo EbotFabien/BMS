@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% include "nav.html" %}
+{% block content%}
+<table class="table">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Name</th>
+        <th scope="col"><a href="{{ url_for('journey.location') }}" class="card-link">Add</a></th>
+      </tr>
+    </thead>
+    <tbody>
+    {% for i in  loc%}
+        <tr>
+            <th scope="row">{{i.id}}</th>
+            <td>{{i.location}}</td>
+            <td></td>
+           
+        </tr>
+    {% endfor %}
+    </tbody>
+  </table>
+
+{% endblock content %} 

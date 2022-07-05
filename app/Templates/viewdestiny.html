@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% include "nav.html" %}
+{% block content%}
+<table class="table">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">location</th>
+        <th scope="col">Start</th>
+        <th scope="col">End</th>
+        <th scope="col">Fee</th>
+        <th scope="col"><a href="{{ url_for('journey.destiny') }}" class="card-link">Add</a></th>
+      </tr>
+    </thead>
+    <tbody>
+    {% for i in  des%}
+        <tr>
+            <th scope="row">{{i.id}}</th>
+            <td>{{i.location_id}}</td>
+            <td>{{i.start}}</td>
+            <td>{{i.end}}</td>
+            <td>{{i.fee}}</td>
+            <td></td>
+           
+        </tr>
+    {% endfor %}
+    </tbody>
+  </table>
+
+{% endblock content %} 

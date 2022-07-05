@@ -1,0 +1,35 @@
+{% block navbar %}
+<div class="container">
+        <nav class="navbar navbar-inverse">
+          <div class="container-fluid">
+            <div class="navbar-header">
+              <a class="navbar-brand" href="{{ url_for('users.dashboard') }}">Welcome {{current_user.username}}</a>
+            </div>
+            <ul class="nav navbar-nav">
+              {%if current_user.Type == 'admin'%}
+                <li><a href="{{ url_for('journey.viewbus') }}">View Buses</a></li>
+              {% else %}
+                <li><a href="{{ url_for('ml.suggestion') }}">Create Suggestions</a></li>
+              {%endif%}
+            </ul>
+            {%if current_user.Type == 'admin'%}
+            <ul class="nav navbar-nav">
+             <li><a href="{{ url_for('journey.viewlocation') }}">View location</a></li>
+            </ul>
+            <ul class="nav navbar-nav">
+              <li><a href="{{ url_for('journey.viewdestiny') }}">View Destination</a></li>
+            </ul>
+            <ul class="nav navbar-nav">
+              <li><a href="{{ url_for('ml.viewimpression') }}">View impressions</a></li>
+            </ul>
+            {%endif%}
+            <ul class="nav navbar-nav">
+              <li><a href="{{ url_for('users.logout') }}">Log out</a></li>
+            </ul>
+            
+          </div>
+        </nav>
+        </div>
+
+        
+{% endblock %}
